@@ -36,3 +36,10 @@ module.exports.getCheckout = (req, res) => {
         pageTitle: 'تسویه حساب'
     })
 }
+
+
+module.exports.getOrders = (req, res) => {
+    res.render('shop/orders', {
+        pageTitle: 'سفارشات'
+    })
+}

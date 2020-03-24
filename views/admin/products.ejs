@@ -1,0 +1,35 @@
+<%- include('../includes/header.ejs') %>
+
+    <main class="content">
+        <h1 class="page-title">فروشگاه</h1>
+        <h2>لیست محصولات</h2>
+
+        <% if (productsArray.length >0) { %>
+            <% for (let product of productsArray) { %>
+                <div class="product-info">
+                    <figure class="product-image">
+                        <img src="../images/product-image.png" alt="">
+                    </figure>
+                    <h2>
+                        <%= product.title %>
+                    </h2>
+                    <p class="product-description">
+                        <%= product.description %>
+                    </p>
+                    <p class="product-price">
+                        <%= product.price %> تومان
+                    </p>
+                    <a href="/admin/edit-product">
+                        تغییر محصول
+                    </a>
+                    <form action="/admin/delete-product" method="POST">
+                        <button type="submit">حذف محصول</button>
+                    </form>
+                </div>
+                <% } %>
+                    <% } else { %>
+                        <p>محصول وجود ندارد.</p>
+                        <% } %>
+    </main>
+
+    <%- include('../includes/footer.ejs') %>

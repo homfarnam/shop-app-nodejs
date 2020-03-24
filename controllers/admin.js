@@ -8,8 +8,12 @@ module.exports.addProductPage = (req, res) => {
 };
 
 module.exports.sendProducts = (req, res) => {
+    const title = req.body.title
+    const description = req.body.description
+    const price = req.body.price
 
-    const products = new Product(req.body.title)
+    const products = new Product(title, description, price)
+
     products.saveProductData()
     res.redirect("/");
 };

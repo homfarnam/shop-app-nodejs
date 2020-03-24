@@ -153,3 +153,7 @@ body {
     color: #fff;
     transition: .3s all;
 }
+
+button {
+    font-family: Vazir;
+}
