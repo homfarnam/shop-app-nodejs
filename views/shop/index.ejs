@@ -1,0 +1,18 @@
+<%- include('../includes/header.ejs') %>
+
+    <main class="content">
+        <h1 class="page-title">فروشگاه</h1>
+        <h2>لیست محصولات</h2>
+
+        <% if (productsArray.length >0) { %>
+            <% for (let counter of productsArray) { %>
+                <p>نام محصول:
+                    <%=counter.title %>
+                </p>
+                <% } %>
+                    <% } else { %>
+                        <p>محصول وجود ندارد.</p>
+                        <% } %>
+    </main>
+
+    <%- include('../includes/footer.ejs') %>

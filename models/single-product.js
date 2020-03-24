@@ -5,8 +5,10 @@ const path = require('path')
 
 
 module.exports = class Product {
-    constructor(title) {
+    constructor(title, description, price) {
         this.title = title
+        this.price = price
+        this.description = description
 
     }
 
