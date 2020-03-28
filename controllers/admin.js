@@ -1,5 +1,4 @@
-const Product = require('../models/single-product');
-
+const Product = require("../models/single-product");
 
 module.exports.addProductPage = (req, res) => {
     res.render("admin/add-product", {
@@ -8,22 +7,27 @@ module.exports.addProductPage = (req, res) => {
 };
 
 module.exports.sendProducts = (req, res) => {
-    const title = req.body.title
-    const description = req.body.description
-    const price = req.body.price
+    const title = req.body.title;
+    const description = req.body.description;
+    const price = req.body.price;
 
-    const products = new Product(title, description, price)
+    const products = new Product(title, description, price);
 
-    products.saveProductData()
+    products.saveProductData();
     res.redirect("/");
 };
 
-
 module.exports.getProducts = (req, res) => {
-    Product.fetchAllProduct((products) => {
+    Product.fetchAllProduct(products => {
         res.render("admin/products", {
             pageTitle: "محصولات ادمین",
             productsArray: products
         });
-    })
-}
+    });
+};
+
+module.exports.deleteProduct = (req, res) => {
+    const pId = req.body.productId;
+    Product.deleteProductData(pId)
+    res.redirect('/admin/products')
+};

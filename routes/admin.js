@@ -12,6 +12,7 @@ router.get('/products', adminControllers.getProducts)
 
 router.post("/add-product", adminControllers.sendProducts);
 
+router.post('/delete-product', adminControllers.deleteProduct)
 
 
 

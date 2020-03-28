@@ -19,9 +19,8 @@
                     <p class="product-price">
                         <%= product.price %> تومان
                     </p>
-                    <form action="/add-to-cart" method="POST">
-                        <button>اضافه به سبد خرید</button>
-                    </form>
+                    <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+
                 </div>
                 <% } %>
                     <% } else { %>

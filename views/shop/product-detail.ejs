@@ -1,14 +1,25 @@
 <%- include('../includes/header.ejs') %>
+
     <main class="content">
-        <p>
-            <%= product.title  %>
-        </p>
-        <p>
-            <%= product.price  %>
-        </p>
-        <p>
-            <%= product.description  %>
-        </p>
+
+        <div class="product-info">
+            <figure class="product-image">
+                <img src="../images/product-image.png" alt="">
+
+            </figure>
+            <h2>
+                عنوان:
+                <%= product.title %>
+            </h2>
+            <p class="product-description">
+                <%= product.description  %>
+            </p>
+            <p class="product-price">
+                قیمت:
+                <%= product.price  %>
+            </p>
+            <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+        </div>
 
     </main>
 
