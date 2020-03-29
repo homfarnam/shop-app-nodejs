@@ -12,14 +12,14 @@ router.get('/products', shopControllers.getAllProducts)
 
 router.get('/products/:productId', shopControllers.getOneProduct)
 
-router.get('/cart', shopControllers.getCart)
+// router.get('/cart', shopControllers.getCart)
 
-router.post('/cart', shopControllers.postCart)
+// router.post('/cart', shopControllers.postCart)
 
-router.get('/orders', shopControllers.getOrders)
+// router.get('/orders', shopControllers.getOrders)
 
 
-router.get('/checkout', shopControllers.getCheckout)
+// router.get('/checkout', shopControllers.getCheckout)
 
 
 

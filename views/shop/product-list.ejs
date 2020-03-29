@@ -21,7 +21,7 @@
                     </p>
                     <%- include('../includes/add-to-cart.ejs', {product: product}) %>
 
-                        <a href="/products/<%= product.id %> ">جزییات محصول</a>
+                        <a href="/products/<%= product._id %> " class="detail-btn">جزییات محصول</a>
                 </div>
                 <% } %>
                     <% } else { %>

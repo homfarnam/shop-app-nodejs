@@ -13,21 +13,42 @@ module.exports.sendProducts = (req, res) => {
 
     const products = new Product(title, description, price);
 
-    products.saveProductData();
-    res.redirect("/");
+    products.saveProductData()
+        .then(result => {
+            console.log('product created!');
+            res.redirect('/admin/add-product')
+        })
+        .catch(err => {
+            console.log(err);
+
+        })
 };
 
 module.exports.getProducts = (req, res) => {
-    Product.fetchAllProduct(products => {
-        res.render("admin/products", {
-            pageTitle: "محصولات ادمین",
-            productsArray: products
-        });
-    });
+    Product.fetchAllProducts()
+        .then(products => {
+            res.render('admin/products', {
+                productsArray: products,
+                pageTitle: 'محصولات ادمین'
+            })
+
+        })
+        .catch(err => {
+            console.log(err);
+
+        })
 };
 
 module.exports.deleteProduct = (req, res) => {
     const pId = req.body.productId;
-    Product.deleteProductData(pId)
-    res.redirect('/admin/products')
+    Product.deleteOneProduct(pId)
+        .then(() => {
+            console.log('Product Deleted!');
+            res.redirect('/admin/products')
+
+        })
+        .catch(err => {
+            console.log(err);
+
+        })
 };
